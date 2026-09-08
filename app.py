@@ -46,7 +46,7 @@ def panel_api():
     if islem == 'olustur':
         db = yukle()
         raw = hashlib.sha256(f'{time.time()}{os.urandom(16).hex()}'.encode()).hexdigest()[:20].upper()
-        key = f'K34-{raw[:4]}-{raw[4:8]}-{raw[8:12]}-{raw[12:16]}'
+        key = f'SOJP-{raw[:4]}-{raw[4:8]}-{raw[8:12]}-{raw[12:16]}'
         gun = d.get('gun', 30)
         db['anahtarlar'][key] = {'paket': d.get('paket','full'), 'cihaz_limiti': d.get('cihaz_limiti',2), 'cihazlar': [], 'baslangic': time.strftime('%Y-%m-%d %H:%M:%S'), 'bitis': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()+gun*86400)), 'aktif': True, 'iptal': False}
         kaydet(db)
